@@ -1,0 +1,25 @@
+<h2>Train Seat Booking</h2>
+
+<button (click)="bookSeats(1)">Book 1 Seat</button>
+<button (click)="bookSeats(2)">Book 2 Seats</button>
+
+<div class="seats">
+  <div
+    *ngFor="let status of seatsStatus; let i = index"
+    class="seat"
+    [ngClass]="{
+      booked: status,
+      available: !status && availableSeats.includes(i)
+    }"
+    (click)="bookSeats(1)"
+  >
+    {{ i + 1 }}
+  </div>
+</div>
+
+<div class="legend">
+  <div class="seat booked"></div>
+  Booked
+  <div class="seat available"></div>
+  Available
+</div>
